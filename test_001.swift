@@ -1,6 +1,6 @@
 import Foundation
 
-/// Check if a string is a palindrome
+// Check if a string is a valid parentheses sequence
 func checkPalindrome(input: [Character]) -> Bool {
     if input.count % 2 != 0 {
         return false
