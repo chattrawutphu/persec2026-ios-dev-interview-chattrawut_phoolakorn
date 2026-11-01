@@ -128,7 +128,7 @@ func test() {
 
 func main() {
     print("\n")
-    print("Pre-Interview Question 2")
+    print("Pre-Interview Question 3")
     print("\n")
     test()
     print("\n---\n")
@@ -138,7 +138,7 @@ func main() {
         print("Enter your limit (or press enter for no limit): ")
         let limit = Int(readLine() ?? "max") ?? Int.max
         print("Enter your words (comma-separated): ")
-        let words = (readLine() ?? "").split(separator: ",").map(String.init)
+        let words = (readLine() ?? "").split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
         print("searchPrefix: \(searchPrefix), limit: \(limit), words: \(words)")
         let result = autocomplete(prefix: searchPrefix, words: words, limit: limit)
         print("Result: \(result)")
