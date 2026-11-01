@@ -1,20 +1,28 @@
 import Foundation
 
-// Sort array by country code and then by number
+// Sort array function
 func sortArray(_ input: [String]) -> [String] {
-    return input.sorted()
+    return input.sorted {
+        $0.localizedStandardCompare($1) == .orderedAscending
+    }
 }
 
 func test() {
     print("Running tests...")
-    
-    let test1 = ["TH19", "SG20", "TH2"]
-    print("test 1 input: \(test1), result: \(sortArray(test1))")
 
-    let test2 = ["TH10", "TH3Netflix", "TH1", "TH7"]
-    print("test 2 input: \(test2), result: \(sortArray(test2))")
-    
-    print("test ended...")
+    func runTest(input: [String], expected: [String]) {
+        let result = sortArray(input)
+        let passed = result == expected
+
+        print("\nTest: \(passed ? "✅ PASS" : "❌ FAIL")")
+        print("Input: \(input)")
+        print("Expected: \(expected)")
+        print("Result: \(result)")
+    }
+
+    runTest(input: ["TH19", "SG20", "TH2"], expected: ["SG20", "TH2", "TH19"])
+    runTest(input: ["TH10", "TH3Netflix", "TH1", "TH7"], expected: ["TH1", "TH3Netflix", "TH7", "TH10"])
+    print("All tests ended...")
 }
 
 func main() {
