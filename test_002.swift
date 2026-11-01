@@ -1,5 +1,6 @@
 import Foundation
 
+// Sort array by country code and then by number
 func sortArray(_ input: [String]) -> [String] {
     return input.sorted()
 }
