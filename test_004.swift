@@ -173,7 +173,7 @@ func test() {
 
 func main() {
     print("\n")
-    print("Pre-Interview Question 1")
+    print("Pre-Interview Question 4")
     print("\n")
     test()
     print("\n---\n")
