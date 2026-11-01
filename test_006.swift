@@ -5,7 +5,11 @@ func tribonacci(input: [Int], number: Int) -> [Int] {
     var result = input
 
     if result.count < 3 {
-        return Array(result)        
+        return Array(result)
+    }
+    
+    if number <= result.count {
+        return Array(result.prefix(number))
     }
     
     for i in result.count..<number {
@@ -42,6 +46,21 @@ func test() {
         input: [10, 10, 10], number: 4,
         expected: [10, 10, 10, 30]
     )
+    
+    runTest(
+        input: [], number: 5,
+        expected: []
+    )
+    
+    runTest(
+        input: [1, 2, 3], number: 2,
+        expected: [1, 2]
+    )
+    
+    runTest(
+        input: [1, 2], number: 5,
+        expected: [1, 2]
+    )
 
     print("test ended...")
 }
@@ -54,7 +73,7 @@ func main() {
     print("\n---\n")
     while true {
         print("Enter your input: ")
-        let input = (readLine() ?? "").split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+        let input = (readLine() ?? "").split(separator: ",").map { Int($0.trimmingCharacters(in: .whitespaces)) ?? 0 }
         print("Your input is: \(input)")
 
         print("Enter the target length: ")
